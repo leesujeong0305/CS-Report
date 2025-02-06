@@ -1,0 +1,64 @@
+.middleSection {
+    background-color: white;
+    width: 100%; /* 전체 너비 */
+    display: flex; /* 가로로 배치 */
+    justify-content: space-around; /* 요소 간 균등 간격 */
+    align-items: flex-start; /* 상단 정렬 */
+    padding: 10px;
+    box-sizing: border-box;
+    gap: 20px; /* 요소 간 간격 */
+  }
+  
+  /* 카드 기본 스타일 */
+  .card {
+    display: flex;
+    flex-direction: column;
+  justify-content: flex-start; /* 차트 아래 배치 */
+    align-items: center;
+    background-color: #fff;
+    width: 300px;
+  height: 200px; /* 카드 높이 증가 */
+    border-radius: 15px;
+    box-sizing: border-box;
+    text-align: center;
+  margin-top: 40px;
+  }
+  
+  /* 카드 헤더 스타일 */
+  .cardHeader {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555; /* 연한 회색 텍스트 */
+  margin-bottom: 4px; /* 아래 간격 */
+  }
+  
+  /* 카드 본문 스타일 */
+  .cardBody h2 {
+    font-size: 48px;
+    font-weight: bold;
+  color: black; /* 검정색 */
+  margin: 10px;
+  }
+  
+  /* 날짜 카드 추가 텍스트 */
+  .dateText {
+    font-size: 14px;
+    color: #777; /* 연한 회색 */
+  }
+  
+  /* 차트 컨테이너 */
+  .chartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  width: 300px;
+  height: 100px; /* 높이 증가 */
+
+  }
+  
+/* 차트 제목 스타일 */
+  .chartTitle {
+  font-size: 20px; /* 제목 크기 조정 */
+    font-weight: bold;
+  text-align: center;
+  }

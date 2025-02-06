@@ -1,0 +1,302 @@
+.bottomSection {
+    width: 100%;
+    height: 60%;
+    padding: 0px 20px;
+    color: white;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: white;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  .addButton {
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+   margin-right: 20px;
+  }
+  
+  .addButton:hover {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    color: black;
+   text-align: center;
+   /* 기본적으로 가운데 정렬 */
+  }
+  
+  .table th,
+  .table td {
+   border: 1px solid #f7f4f4;
+    padding: 8px;
+  }
+  
+  .table th {
+    background-color: rgb(90, 143, 241);
+    color: white;
+  }
+  
+ .table th:nth-child(2),
+ .table td:nth-child(2) {
+   text-align: left;
+ }
+
+ .table td.title {
+   text-align: left;
+   /* 제목만 왼쪽 정렬 */
+  }
+  
+  .table col:nth-child(1) {
+   width: 3%;
+   /* No */
+  }
+  
+  .table col:nth-child(2) {
+   width: 39%;
+   /* 제목 */
+  }
+  
+  .table col:nth-child(3) {
+   width: 10%;
+   /* 요청자 */
+  }
+  
+  .table col:nth-child(4) {
+   width: 5%;
+   /* 요청메일 */
+  }
+  
+  .table col:nth-child(5) {
+   width: 7%;
+   /* 요청 날짜 */
+  }
+  
+  .table col:nth-child(6) {
+   width: 7%;
+   /* 분류 */
+  }
+  
+  .table col:nth-child(7) {
+   width: 5%;
+   /* 담당자 */
+  }
+  
+  .table col:nth-child(8) {
+   width: 5%;
+   /* 진행률 */
+  }
+  
+  .table col:nth-child(9) {
+   width: 6%;
+   /* 검토 */
+  }
+
+  .table col:nth-child(10) {
+    width: 7%;
+    /* 사이트 */
+   }
+  
+ .table col:nth-child(11) {
+   width: 1%;
+   /* 수정/삭제 */
+  }
+  
+  .formContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form {
+    background: white;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+   width: 800px;
+    display: flex;
+    flex-direction: column;
+   gap: 15px;
+ }
+
+ .row {
+   display: flex;
+   /* 라벨과 입력 필드를 가로로 정렬 */
+   align-items: center;
+   /* 수직 정렬 */
+   margin-bottom: 5px;
+   /* 필드 간 간격 */
+  }
+  
+ .column {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+  }
+  
+ label {
+    font-weight: bold;
+   margin-bottom: 5px;
+  }
+  
+ input,
+ select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   width: 95%;
+   box-sizing: border-box;
+ }
+
+ .buttonRow {
+   display: flex;
+   justify-content: flex-end;
+   /* 오른쪽 정렬 */
+   gap: 10px;
+   /* 버튼 간 간격 */
+   margin-right: 40px;
+  }
+  
+ .button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   gap: 10px;
+   /* 버튼 간의 간격 설정 */
+  }
+  
+ .editButton {
+    background-color: #28a745;
+    color: white;
+    padding: 8px;
+    margin-right: 6px;
+  }
+  
+ .deleteButton {
+    background-color: #dc3545;
+    color: white;
+   padding: 8px;
+ }
+
+ .button:hover {
+   opacity: 0.8;
+   /* 마우스 올릴 때 투명도 조정 */
+  }
+
+   .formLabel {
+   margin-bottom: 5px;
+   /* 라벨과 입력 필드 간격 */
+   font-weight: bold;
+   /* 라벨 강조 */
+ }
+
+ .formTitle {
+   text-align: center;
+   /* 텍스트를 가운데 정렬 */
+   margin-bottom: 20px;
+   /* 제목 아래에 간격 추가 */
+   font-size: 1.5rem;
+   /* 제목 크기 설정 */
+   font-weight: bold;
+   /* 제목 강조 */
+   color: #333;
+   /* 제목 색상 */
+ }
+
+ .errorField {
+   border: 2px solid red;
+   /* 잘못된 입력 필드 빨간 테두리 */
+   background-color: #ffe6e6;
+   /* 강조 배경색 */
+ }
+
+ .buttonRow {
+   display: flex;
+   justify-content: flex-end;
+   gap: 10px;
+   /* 버튼 간격 */
+   margin-top: 20px;
+ }
+
+ .buttonRow button {
+   padding: 10px 20px;
+   font-size: 16px;
+   font-weight: bold;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s, transform 0.2s;
+ }
+
+ /* 등록 버튼 스타일 */
+ .buttonRow button:first-child {
+   background-color: #4caf50;
+   /* 초록색 */
+   color: white;
+ }
+
+ .buttonRow button:first-child:hover {
+   background-color: #45a049;
+   /* 호버 시 더 진한 초록색 */
+   transform: scale(1.05);
+   /* 약간 확대 */
+ }
+
+ /* 취소 버튼 스타일 */
+ .buttonRow button:last-child {
+   background-color: #f44336;
+   /* 빨간색 */
+   color: white;
+ }
+
+ .buttonRow button:last-child:hover {
+   background-color: #d32f2f;
+   /* 호버 시 더 진한 빨간색 */
+   transform: scale(1.05);
+   /* 약간 확대 */
+ }
+ .passwordPrompt {
+  position: fixed;
+  top: 50%;                     
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  text-align: center;
+  color: #000;
+}
+.passwordPrompt input {
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 80%;
+}
+.passwordPrompt .buttonRow {
+  display: flex; /* 버튼들을 가로로 배치 */
+  justify-content: center; /* 버튼들을 가운데 정렬 */
+  gap: 20px; /* 버튼 간 간격 */
+  width: 100%;
+}
