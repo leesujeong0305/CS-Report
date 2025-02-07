@@ -1,10 +1,7 @@
+import { Transform } from "class-transformer";
 import { IsNotEmpty, IsNumber, IsString } from "class-validator";
 
-
 export class CreateBoardDto {
-    @IsNotEmpty()
-    id: number;
-
     @IsString()
     @IsNotEmpty()
     title: string;
@@ -13,33 +10,35 @@ export class CreateBoardDto {
     @IsNotEmpty()
     requester: string; // 요청자
 
-    @IsString()
-    request_mail: string; // 요청 메일
-
+    @IsNumber()
     @IsNotEmpty()
-    request_date: Date; // 요청 날짜
+    @Transform(({ value }) => Number(value)) // 문자열 -> 숫자로 변환
+    request_mail: number; // 요청 메일
 
     @IsNumber()
     @IsNotEmpty()
-    state_cause: number; // 상태 원인
-
-    @IsNumber()
-    @IsNotEmpty()
+    @Transform(({ value }) => Number(value)) // 문자열 -> 숫자로 변환
     state: number; // 상태
-
+    
     @IsString()
     @IsNotEmpty()
     manager: string; // 담당자
-
+    
     @IsNumber()
     @IsNotEmpty()
+    @Transform(({ value }) => Number(value)) // 문자열 -> 숫자로 변환
     state_progress: number; // 진행상태
 
     @IsNumber()
     @IsNotEmpty()
-    site: number;
-
+    @Transform(({ value }) => Number(value)) // 문자열 -> 숫자로 변환
+    review: number; // 검토 상태
+    
     @IsNumber()
     @IsNotEmpty()
-    review: number; // 유비샘 내부 진행
+    @Transform(({ value }) => Number(value)) // 문자열 -> 숫자로 변환
+    site: number;
+    
+    @IsNotEmpty()
+    request_date: Date; // 요청 날짜
 }

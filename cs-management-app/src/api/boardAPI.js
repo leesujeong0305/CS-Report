@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = `http://localhost:8080/boards`;
+const API_URL = `http://ubisampaju.synology.me:9101/boards`;
 
 export const getAllBoard = async () => {
   try {

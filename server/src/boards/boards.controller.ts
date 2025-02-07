@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 
@@ -34,6 +34,23 @@ export class BoardsController {
     @UsePipes(new ValidationPipe())
     createBoard(@Body() createBoardDto: CreateBoardDto) {
         return this.boardsService.createBoard(createBoardDto);
+    }
+
+
+    @Put(':id') // 업데이트를 위한 API
+    @UsePipes(new ValidationPipe())
+    updateBoard(@Param('id') id: number, // 업데이트할 대상 ID
+                @Body() updateBoardDto: CreateBoardDto, // 업데이트할 데이터
+    ) {
+        return this.boardsService.updateBoard(id, updateBoardDto);
+    }
+
+    @Delete(':id')
+    deleteBoard(@Param('id') id: number) {
+    console.log('delete 진행');
+    
+    return this.boardsService.deleteBoard(id);
+    //return { message: `Board with ID ${id} has been deleted` };
     }
 
 }

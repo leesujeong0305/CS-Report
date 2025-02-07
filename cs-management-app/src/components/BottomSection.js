@@ -227,6 +227,7 @@ const handleAddRow = async () => {
     
     setShowDeletedPrompot(false);
     setCurrentRow(null);
+    LoadAllBoard();
   }
 
   const getInputClassName = (field) => {

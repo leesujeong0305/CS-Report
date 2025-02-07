@@ -174,7 +174,7 @@ const statePercentages = calculateStatusPercentages(tableData, stateMapping);
                 fillStyle: datasets.backgroundColor[index],
                 strokeStyle: datasets.borderColor[index],
                 lineWidth: 1,
-                hidden: !chart.getDatasetMeta(0).data[index].active,
+                //hidden: !chart.getDatasetMeta(0).data[index].active,
               };
             });
           },
