@@ -9,17 +9,17 @@ function BottomSection({ tableData, LoadAllBoard }) {
   const requestMailMapping = {
     1: '메일',
     2: '전화',
-    99: '일반',
+    99: '기타',
   };
 
   const stateMapping = {
-    1: 'log',
+    1: '로그',
     2: '알람',
-    3: 'debug',
+    3: '디버그',
     4: '버그',
     5: '분석',
     6: '테스트',
-    99: '일반',
+    99: '기타',
   }
 
   const progressMapping = {
@@ -30,8 +30,8 @@ function BottomSection({ tableData, LoadAllBoard }) {
 
   const reviewMapping = {
     1: '접수',
-    2: '컴펀 중',
-    3: '컴펀 완료',
+    2: '컨펌 중',
+    3: '컨펌 완료',
     4: '긴급 대응',
   }
 
@@ -40,6 +40,12 @@ function BottomSection({ tableData, LoadAllBoard }) {
     2: '파주[레이저]',
     3: '구미[패턴]',
     4: '구미[레이저]',
+  }
+
+  const progressBackColor = {
+    1: '#34c38f',
+    2: '#f59f00',
+    3: '#d6336c',
   }
 
   const [showForm, setShowForm] = useState(false);
@@ -328,7 +334,7 @@ const handleAddRow = async () => {
                   <option value="">선택</option>
                   <option value="1">메일</option>
                   <option value="2">전화</option>
-                  <option value="99">일반</option>
+                  <option value="99">기타</option>
                 </select>
               </div>
             </div>
@@ -354,13 +360,13 @@ const handleAddRow = async () => {
                   onChange={handleInputChange}
                 >
                   <option value="">선택</option>
-                  <option value="1">log</option>
+                  <option value="1">로그</option>
                   <option value="2">알람</option>
-                  <option value="3">debug</option>
+                  <option value="3">디버그</option>
                   <option value="4">버그</option>
                   <option value="5">분석</option>
                   <option value="6">테스트</option>
-                  <option value="99">일반</option>
+                  <option value="99">기타</option>
                 </select>
               </div>
             </div>
@@ -405,8 +411,8 @@ const handleAddRow = async () => {
                 >
                   <option value="">선택</option>
                   <option value="1">접수</option>
-                  <option value="2">컴펀 중</option>
-                  <option value="3">컴펀 완료</option>
+                  <option value="2">컨펌 중</option>
+                  <option value="3">컨펌 완료</option>
                   <option value="4">긴급 대응</option>
                 </select>
               </div>
@@ -479,7 +485,7 @@ const handleAddRow = async () => {
               <td>{formatDate(row.request_date)}</td>
               <td>{stateMapping[row.state]}</td>
               <td>{row.manager}</td>
-              <td style={progressMapping[row.state_progress] === '완료' ? {backgroundColor: '#FFD700'}: {}}>{progressMapping[row.state_progress]}</td>
+              <td style={{backgroundColor : progressBackColor[row.state_progress]}}>{progressMapping[row.state_progress]}</td>
               <td>{reviewMapping[row.review]}</td>
               <td>{siteMapping[row.site]}</td>
               <td>
