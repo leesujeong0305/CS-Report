@@ -168,7 +168,7 @@ const statePercentages = calculateStatusPercentages(tableData, stateMapping);
   
             return chart.data.labels.map((label, index) => {
               const value = datasets.data[index];
-              const percentage = ((value / total) * 100).toFixed(2);
+              const percentage = ((value / total) * 100).toFixed(1);
               return {
                 text: `${label} (${percentage}%)`,  // 범례 텍스트
                 fillStyle: datasets.backgroundColor[index],
