@@ -3,6 +3,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 export const typeORMConfig: TypeOrmModuleOptions = {
     type: 'postgres',            // 데이터베이스 유형
     host: '14.58.108.70',        // 데이터베이스 호스트
+    //host: 'localhost',        // 데이터베이스 호스트
     port: 15432,               // 데이터베이스 포트
     username: 'postgres',         // 데이터베이스 사용자명
     password: 'ub8877',   // 데이터베이스 비밀번호

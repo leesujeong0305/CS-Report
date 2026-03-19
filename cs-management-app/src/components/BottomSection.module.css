@@ -29,6 +29,22 @@
     background-color: #28a745;
     color: white;
   }
+
+  .excelButton {
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .excelButton:hover {
+    background-color: #2a28a7;
+    color: white;
+  }
   
   .table {
     width: 100%;
@@ -299,4 +315,35 @@
   justify-content: center; /* 버튼들을 가운데 정렬 */
   gap: 20px; /* 버튼 간 간격 */
   width: 100%;
+}
+
+.filterGroup {
+  display: flex;
+  gap: 8px;
+  flex: 1; /* 가능한 넓게 차지하도록 설정 */
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  white-space: nowrap; /* 버튼 텍스트 줄바꿈 방지 */
+}
+
+.filterInput, .filterSelect {
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  outline: none;
+  width: 120px;
+}
+
+.filterInput:focus, .filterSelect:focus {
+  border-color: #4F81BD;
+}
+
+.filterInput {
+  width: 80px;
 }

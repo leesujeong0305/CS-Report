@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { addBoard, deleteBoard, getAllBoard, updateBoard } from '../api/boardAPI';
 import Pagination from '../pagenation/Pagination';
+import Excelexport from './Excelexport';
+import FilterGroup from './FilterGroup';
 
-function BottomSection({ tableData, LoadAllBoard }) {
+function BottomSection({ tableData, LoadAllBoard, filters, onFilterChange }) {
   const requestMailMapping = {
     1: '메일',
     2: '전화',
@@ -255,11 +257,27 @@ const handleAddRow = async () => {
   return utcDate.toISOString().split('T')[0]; // UTC 기준 "YYYY-MM-DD" 반환
   };
 
+  const exportToExcel = () => {
+    Excelexport(tableData);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handlePasswordSubmit();
+    }
+  };
+
   return (
     <div className={styles.bottomSection}>
       <div className={styles.header}>
-      <button className={styles.addButton} onClick={() => openPasswordPrompt('add')}>
-          <FontAwesomeIcon icon={faPlus} className={styles.icon} /> Add
+
+        {/* 복잡한 필터 로직은 이 한 줄로 끝납니다 */}
+        <FilterGroup filters={filters} onFilterChange={onFilterChange} />
+
+        <button className={styles.excelButton} onClick={exportToExcel}>엑셀 내보내기</button>
+
+        <button className={styles.addButton} onClick={() => openPasswordPrompt('add')}>
+            <FontAwesomeIcon icon={faPlus} className={styles.icon} /> Add
         </button>
       </div>
 
@@ -271,6 +289,7 @@ const handleAddRow = async () => {
             type="password"
             value={passwordInput}
             onChange={(e) => setPasswordInput(e.target.value)}
+            onKeyDown={handleKeyDown} // 키 눌림 감지
             placeholder="비밀번호 입력"
           />
           <div className={styles.buttonRow}>

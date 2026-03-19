@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Header from './components/Header';
 import MiddleSection from './components/MiddleSection';
 import BottomSection from './components/BottomSection';
@@ -73,18 +73,52 @@ function App() {
     //   },
     // ]);
 
-    const LoadAllBoard = async () => {
-      const data = await getAllBoard();
-      setTableData(data);
-    }
+    // 필터 상태 정의
+  const [filters, setFilters] = useState({
+    manager: '',      // 담당자 (검색어)
+    state: '',        // 분류
+    state_progress: '', // 진행률
+    review: '',       // 검토
+    site: ''          // 사이트
+  });
 
+  // 필터 변경 핸들러
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // 핵심 로직: 필터링된 데이터 계산
+  const filteredData = useMemo(() => {
+    return tableData.filter(item => {
+      return (
+        // 담당자 검색 (문자열 포함 여부)
+        (filters.manager === '' || item.manager?.toLowerCase().includes(filters.manager.toLowerCase())) &&
+        // 나머지 선택형 필터 (일치 여부)
+        (filters.state === '' || String(item.state) === filters.state) &&
+        (filters.state_progress === '' || String(item.state_progress) === filters.state_progress) &&
+        (filters.review === '' || String(item.review) === filters.review) &&
+        (filters.site === '' || String(item.site) === filters.site)
+      );
+    });
+  }, [tableData, filters]); // 원본 데이터나 필터 조건이 바뀔 때만 다시 계산
+
+  const LoadAllBoard = async () => {
+    const data = await getAllBoard();
+    setTableData(data);
+  }
+ 
   return (
     <div className={styles.app}>
       <Header />
 
+
       <LoadAllBoardModule LoadAllBoard={LoadAllBoard} />
-      <MiddleSection tableData={tableData} />
-      <BottomSection tableData={tableData} LoadAllBoard={LoadAllBoard} />
+       <MiddleSection tableData={filteredData} /> {/*  filteredData */}
+      <BottomSection tableData={filteredData} LoadAllBoard={LoadAllBoard} filters={filters} onFilterChange={handleFilterChange} />
     </div>
   );
 }

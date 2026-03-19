@@ -18,3 +18,28 @@
 .bottomSection {
   flex: 0 0 33%; /* 높이를 1/3로 고정 */
 }
+
+/* styles.module.css 예시 */
+.filterBar {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filterInput {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+.filterBar select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
